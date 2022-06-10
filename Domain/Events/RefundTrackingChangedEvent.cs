@@ -8,12 +8,12 @@ namespace Domain.Events;
 
 public class RefundTrackingChangedEvent : INotification
 {
-    public RefundTrackingChangedEvent(string id, ETracking tracking)
+    public RefundTrackingChangedEvent(string orderId, ETracking tracking)
     {
-        Id = id;
+        OrderId = orderId;
         Tracking = tracking;
     }
 
-    public string Id { get; set; }
+    public string OrderId { get; set; }
     public ETracking Tracking { get; set; }
 }
