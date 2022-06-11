@@ -1,3 +1,6 @@
 ﻿namespace Application.Queries.Customers;
 
-public record GetAllCustomersQuery : IRequest<IEnumerable<Customer>>;
+public class GetAllCustomersQuery : IRequest<IEnumerable<Customer>>
+{
+
+};

@@ -8,10 +8,10 @@ public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, IEnumer
         _userRepository = userRepository;
     }
 
-    public Task<IEnumerable<User>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<User>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
     {
         var users = _userRepository.GetAllUsers();
 
-        return users;
+        return await users;
     }
 }

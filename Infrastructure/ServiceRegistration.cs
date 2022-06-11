@@ -15,7 +15,6 @@ public static class ServiceRegistration
         #region Add Repositories
 
         services.AddTransient<ICustomerRepository, CustomerRepository>();
-        services.AddTransient(typeof(ICustomerRepository), typeof(CustomerRepository));
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient(typeof(IUserRepository), typeof(UserRepository));
         services.AddTransient<IOrderRepository, OrderRepository>();

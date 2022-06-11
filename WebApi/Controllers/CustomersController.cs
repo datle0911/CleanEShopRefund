@@ -19,8 +19,16 @@ public class CustomersController : Controller
     [HttpGet]
     public async Task<IActionResult> GetAllCustomers()
     {
-        //var result = await _mediator.Send(new GetAllCustomersQuery());
-        var result = _context.Customers.ToList();
+        var result = await _mediator.Send(new GetAllCustomersQuery());
+
+        return Ok(result);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var result = await _mediator.Send(new GetCustomerByIdQuery(id));
+
         return Ok(result);
     }
 }

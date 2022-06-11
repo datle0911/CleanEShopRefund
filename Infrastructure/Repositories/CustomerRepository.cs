@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Infrastructure.Repositories;
+﻿namespace Infrastructure.Repositories;
 
 public class CustomerRepository : BaseRepository, ICustomerRepository
 {
@@ -20,5 +14,14 @@ public class CustomerRepository : BaseRepository, ICustomerRepository
             .ToListAsync();
 
         return customers;
+    }
+
+    public async Task<Customer?> GetCustomerById(int id)
+    {
+        var customer = _context
+            .Customers
+            .FirstOrDefault(c => c.Id == id);
+
+        return customer;
     }
 }

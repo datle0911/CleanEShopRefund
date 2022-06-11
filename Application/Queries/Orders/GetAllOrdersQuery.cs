@@ -1,3 +1,6 @@
 ﻿namespace Application.Queries.Orders;
 
-public record GetAllOrdersQuery : IRequest<IEnumerable<Order>>;
+public class GetAllOrdersQuery : IRequest<IEnumerable<Order>>
+{
+
+}

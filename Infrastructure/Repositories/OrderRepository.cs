@@ -10,6 +10,7 @@ public class OrderRepository : BaseRepository, IOrderRepository
     {
         return await _context
             .Orders
+            .Include(o => o.Customer)
             .AsNoTracking()
             .ToListAsync();
     }

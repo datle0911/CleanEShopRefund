@@ -10,8 +10,6 @@ public class GetAllCustomersQueryHandler : IRequestHandler<GetAllCustomersQuery,
 
     public async Task<IEnumerable<Customer>> Handle(GetAllCustomersQuery request, CancellationToken cancellationToken)
     {
-        var customers = await _customerRepository.GetAllCustomers();
-
-        return customers;
+        return await Task.FromResult(await _customerRepository.GetAllCustomers());
     }
 }
