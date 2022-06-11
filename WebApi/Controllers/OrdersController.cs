@@ -13,7 +13,7 @@ public class OrdersController : Controller
     [HttpGet]
     public async Task<IActionResult> GetAllOrders()
     {
-        var result = _mediator.Send(new GetAllOrdersQuery());
+        var result = await _mediator.Send(new GetAllOrdersQuery());
 
         return Ok(result);
     }

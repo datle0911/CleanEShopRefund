@@ -1,4 +1,3 @@
-using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -19,6 +18,10 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceInfrastructure(configuration);
+builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddMediatR(typeof(CustomerRepository).Assembly);
+builder.Services.AddMediatR(typeof(UserRepository).Assembly);
+builder.Services.AddMediatR(typeof(OrderRepository).Assembly);
 
 var app = builder.Build();
 

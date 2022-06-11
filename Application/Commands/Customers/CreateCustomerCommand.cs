@@ -1,5 +1,5 @@
 ﻿namespace Application.Commands.Customers;
 
-internal class CreateCustomerCommand
+public class CreateCustomerCommand
 {
 }

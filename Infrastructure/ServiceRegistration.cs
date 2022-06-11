@@ -14,9 +14,12 @@ public static class ServiceRegistration
 
         #region Add Repositories
 
-        //services.AddTransient<IEonNodeRepository, EonNodeRepository>();
-        //services.AddTransient<IDeviceRepository, DeviceRepository>();
-        //services.AddTransient<ITagRepository, TagRepository>();
+        services.AddTransient<ICustomerRepository, CustomerRepository>();
+        services.AddTransient(typeof(ICustomerRepository), typeof(CustomerRepository));
+        services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient(typeof(IUserRepository), typeof(UserRepository));
+        services.AddTransient<IOrderRepository, OrderRepository>();
+        services.AddTransient(typeof(IOrderRepository), typeof(OrderRepository));
 
         #endregion
     }

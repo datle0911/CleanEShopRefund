@@ -1,5 +1,5 @@
 ﻿namespace Application.Commands.Users;
 
-internal class CreateUserCommand
+public class CreateUserCommand
 {
 }

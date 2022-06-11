@@ -1,5 +1,3 @@
 ﻿namespace Application.Queries.Users;
 
-public class GetAllUsersQuery : IRequest<IEnumerable<User>>
-{
-}
+public record GetAllUsersQuery : IRequest<IEnumerable<User>>;

@@ -1,11 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Application.Queries.Users;
 
-namespace Application.Queries.Users;
-
-internal class GetAllUsersQueryHandler
+public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, IEnumerable<User>>
 {
+    private readonly IUserRepository _userRepository;
+    public GetAllUsersQueryHandler(IUserRepository userRepository)
+    {
+        _userRepository = userRepository;
+    }
+
+    public Task<IEnumerable<User>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
+    {
+        var users = _userRepository.GetAllUsers();
+
+        return users;
+    }
 }

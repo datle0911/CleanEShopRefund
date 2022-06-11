@@ -13,7 +13,7 @@ public class UsersController : Controller
     [HttpGet]
     public async Task<IActionResult> GetAllUsers()
     {
-        var result = _mediator.Send(new GetAllUsersQuery());
+        var result = await _mediator.Send(new GetAllUsersQuery());
 
         return Ok(result);
     }

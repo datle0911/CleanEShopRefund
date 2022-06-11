@@ -8,3 +8,8 @@ global using Application.Queries.Customers;
 global using Application.Queries.Orders;
 global using Application.Queries.Users;
 
+global using Infrastructure;
+global using Infrastructure.Repositories;
+global using Domain.Repositories;
+
+
