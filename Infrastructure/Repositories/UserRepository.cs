@@ -12,6 +12,11 @@ public class UserRepository : BaseRepository, IUserRepository
     {
     }
 
+    public async Task AddUser(User user)
+    {
+        await _context.AddAsync(user);
+    }
+
     public async Task<IEnumerable<User>> GetAllUsers()
     {
         return await _context

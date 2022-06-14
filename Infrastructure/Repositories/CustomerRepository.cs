@@ -6,6 +6,11 @@ public class CustomerRepository : BaseRepository, ICustomerRepository
     {
     }
 
+    public async Task AddCustomer(Customer customer)
+    {
+        await _context.AddAsync(customer);
+    }
+
     public async Task<IEnumerable<Customer>> GetAllCustomers()
     {
         var customers = await _context
