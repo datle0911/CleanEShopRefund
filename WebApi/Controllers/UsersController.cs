@@ -5,9 +5,11 @@
 public class UsersController : Controller
 {
     private readonly IMediator _mediator;
-    public UsersController(IMediator mediator)
+    private readonly IMapper _mapper;
+    public UsersController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
     [HttpGet]
@@ -15,6 +17,14 @@ public class UsersController : Controller
     {
         var result = await _mediator.Send(new GetAllUsersQuery());
 
+        return Ok(result);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateUser(SaveUserViewModel saveUserViewModel)
+    {
+        var resource = _mapper.Map<SaveUserViewModel, User>(saveUserViewModel);
+        var result = await _mediator.Send(new CreateUserCommand(resource));
         return Ok(result);
     }
 }

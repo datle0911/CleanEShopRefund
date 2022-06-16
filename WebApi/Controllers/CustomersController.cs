@@ -7,11 +7,11 @@ namespace WebApi.Controllers;
 public class CustomersController : Controller
 {
     private readonly IMediator _mediator;
-    private readonly ApplicationDbContext _context;
-    public CustomersController(IMediator mediator, ApplicationDbContext context)
+    private readonly IMapper _mapper;
+    public CustomersController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
-        _context = context;
+        _mapper = mapper;
     }
 
 
@@ -29,6 +29,14 @@ public class CustomersController : Controller
     {
         var result = await _mediator.Send(new GetCustomerByIdQuery(id));
 
+        return Ok(result);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateCustomer(SaveCustomerViewModel saveCustomerViewModel)
+    {
+        var resource = _mapper.Map<SaveCustomerViewModel, Customer>(saveCustomerViewModel);
+        var result = await _mediator.Send(new CreateCustomerCommand(resource));
         return Ok(result);
     }
 }

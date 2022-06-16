@@ -9,3 +9,4 @@ global using MediatR;
 global using Domain.Events;
 global using Domain.Models;
 global using Domain.Repositories;
+global using Domain.Models.Enums;

@@ -6,7 +6,8 @@ public class OrderViewModel
     {
 
     }
-    public OrderViewModel(string id, Customer customer, Refund refund, DateTime timestamp, string address, EStatus status, ETracking tracking, string purchaseCode, double totalPrice)
+
+    public OrderViewModel(string id, CustomerViewModel customer, RefundViewModel refund, DateTime timestamp, string address, EStatus status, ETracking tracking, string purchaseCode, double totalPrice)
     {
         Id = id;
         Customer = customer;
@@ -20,8 +21,8 @@ public class OrderViewModel
     }
 
     public string Id { get; set; }
-    public Customer Customer { get; set; }
-    public Refund Refund { get; set; }
+    public CustomerViewModel Customer { get; set; } = new CustomerViewModel();
+    public RefundViewModel Refund { get; set; } = new RefundViewModel();
     public DateTime Timestamp { get; set; }
     public string Address { get; set; }
     public EStatus Status { get; set; }

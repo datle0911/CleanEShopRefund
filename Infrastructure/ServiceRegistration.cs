@@ -20,6 +20,8 @@ public static class ServiceRegistration
         services.AddTransient<IOrderRepository, OrderRepository>();
         services.AddTransient(typeof(IOrderRepository), typeof(OrderRepository));
 
+        services.AddTransient<IUnitOfWork, UnitOfWork>();
+
         #endregion
     }
 }

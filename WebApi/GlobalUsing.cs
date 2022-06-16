@@ -6,6 +6,8 @@ global using MediatR;
 global using Application.Queries.Customers;
 global using Application.Queries.Orders;
 global using Application.Queries.Users;
+global using Application.Commands.Customers;
+global using Application.Commands.Users;
 
 global using Infrastructure;
 global using Infrastructure.Repositories;
